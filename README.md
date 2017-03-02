@@ -13,6 +13,44 @@ To display A, AAAA, NS, MX, SOA, and TXT DNS records with their Record name, TTY
 dig -t ANY viableindustries.com
 ```
 
+You should receive a response in the following format. Your mileage will vary based on DNS host factors.
+
+```
+; <<>> DiG 9.8.3-P1 <<>> -t ANY viableindustries.com
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 39210
+;; flags: qr rd ra; QUERY: 1, ANSWER: 12, AUTHORITY: 0, ADDITIONAL: 4
+
+;; QUESTION SECTION:
+;viableindustries.com.		IN	ANY
+
+;; ANSWER SECTION:
+viableindustries.com.	300	IN	TXT	"v=spf1 include:spf.mandrillapp.com ?all"
+viableindustries.com.	172800	IN	NS	ns-1450.awsdns-53.org.
+viableindustries.com.	172800	IN	NS	ns-1836.awsdns-37.co.uk.
+viableindustries.com.	172800	IN	NS	ns-29.awsdns-03.com.
+viableindustries.com.	172800	IN	NS	ns-711.awsdns-24.net.
+viableindustries.com.	900	IN	SOA	ns-711.awsdns-24.net. awsdns-hostmaster.amazon.com. 1 7200 900 1209600 86400
+viableindustries.com.	300	IN	A	107.170.129.166
+viableindustries.com.	300	IN	MX	30 aspmx2.googlemail.com.
+viableindustries.com.	300	IN	MX	30 aspmx3.googlemail.com.
+viableindustries.com.	300	IN	MX	10 aspmx.l.google.com.
+viableindustries.com.	300	IN	MX	20 alt1.aspmx.l.google.com.
+viableindustries.com.	300	IN	MX	20 alt2.aspmx.l.google.com.
+
+;; ADDITIONAL SECTION:
+ns-1450.awsdns-53.org.	160844	IN	A	205.251.197.170
+ns-1836.awsdns-37.co.uk. 160760	IN	A	205.251.199.44
+ns-1836.awsdns-37.co.uk. 170135	IN	AAAA	2600:9000:5307:2c00::1
+ns-29.awsdns-03.com.	79866	IN	A	205.251.192.29
+
+;; Query time: 57 msec
+;; SERVER: 2001:558:feed::2#53(2001:558:feed::2)
+;; WHEN: Thu Mar  2 09:39:45 2017
+;; MSG SIZE  rcvd: 509
+```
+
 #### Reference
 
 ```
